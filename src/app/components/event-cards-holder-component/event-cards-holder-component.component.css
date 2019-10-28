@@ -1,0 +1,27 @@
+.event-cards-holder-class {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    background-color:lightblue;
+  }
+
+  .event-cards-holder-class:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+
+  .event-cards-holder-container {
+    padding: 2px 16px;
+  }
+
+  .event-cards-holder-content{
+      padding:10px;
+      text-align:center;
+  }
+
+  .event-cards-holder-content div{
+      margin:10px 0px 10px 0px;
+      padding:0px;
+  }
+  .addEvent-btn-container-class{
+    padding:5px;
+    text-align:right;
+  }

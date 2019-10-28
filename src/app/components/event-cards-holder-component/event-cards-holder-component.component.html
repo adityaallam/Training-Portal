@@ -1,0 +1,16 @@
+<div class="event-cards-holder-class">
+    <div class="event-cards-holder-container">
+        <h2>Events List</h2>
+        <div class="addEvent-btn-container-class">
+            <button (click)="cardObjInitialisation(defaultCardObj,-1,'')">Add Event</button>
+        </div>
+        <div class="event-cards-holder-content">
+            <p *ngIf="cardsArray==undefined || cardsArray==null || cardsArray[cardsService.selectedDept]==undefined || cardsArray[cardsService.selectedDept]==null || cardsArray[cardsService.selectedDept].length==0 ">No Events to show</p>
+            <ng-container *ngFor="let card of cardsArray[cardsService.selectedDept];let i=index">
+                    <event-card-component *ngIf="cardsArray!=undefined && cardsArray!=null && cardsArray[cardsService.selectedDept]!=undefined && cardsArray[cardsService.selectedDept]!=null && cardsArray[cardsService.selectedDept].length!=0 && (cardsService.searchText.trim()==''|| (card.trainingName.toUpperCase().includes(cardsService.searchText.toUpperCase().trim())))" [cardObj]="card" [indexOfTheCard]="i" (preEventBeforeEditingTheCard)="cardObjInitialisation($event.card,$event.index,$event.dept)" ></event-card-component>
+            </ng-container>
+
+        </div>
+    </div>
+</div>
+  <event-add-component *ngIf="cardObj!=undefined && cardObj!=null && showCardObjComponent" (closeEvent)="closeEventOfTheCardComponentHandler()" (addCard)="addTheCard($event)" [cardObj]="cardObj"></event-add-component>

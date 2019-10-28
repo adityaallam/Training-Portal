@@ -1,0 +1,40 @@
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close" (click)="hideComponent()">&times;</span>
+        <h2>Add/Edit Event</h2>
+        <form *ngIf="cardObj!=null && cardObj!=undefined">
+                <label for="tname">Training Name</label>
+                <input type="text" id="tname" name="tname" [(ngModel)]="cardObj.trainingName">
+                <p *ngIf="cardObj.trainingName==undefined || cardObj.trainingName==null || cardObj.trainingName.trim()==''">Training Name is mandatory</p>
+                <label for="dname">Description</label>
+                <textarea id="dname" name="dname" [(ngModel)]="cardObj.description">{{cardObj.description}}</textarea>
+                <label for="dept">Department</label>
+                <select id="dept" name="deptName" [(ngModel)]="cardObj.department">
+                    <option [ngValue]="cardObj.department">{{cardObj.department}}</option>
+                    <ng-container *ngFor="let dept of cardsService.departmentsArray">
+                        <option *ngIf="(dept !== cardObj.department) && (dept !== 'All Departments')" [ngValue]="dept">{{dept}}</option>
+                    </ng-container>
+                </select>
+                <p *ngIf="cardObj.department==undefined || cardObj.department==null ">Department Selection is mandatory</p>
+                <label for="dept">Meeting Room</label>
+                <select id="meetingRoom" name="meetingRoomName" [(ngModel)]="cardObj.meetingRoom">
+                        <option [ngValue]="cardObj.meetingRoom">{{cardObj.meetingRoom}}</option>
+                        <ng-container *ngFor="let meetingRoom of cardsService.meetingRooms">
+                            <option *ngIf="meetingRoom !== cardObj.meetingRoom" [ngValue]="meetingRoom">{{meetingRoom}}</option>
+                        </ng-container>
+                </select>
+                <p *ngIf="cardObj.meetingRoom==undefined || cardObj.meetingRoom==null ">Meeting Room selection is mandatory</p>
+                <label for="dateTime">Date And Time</label>
+                <input type="date" id="dateTime" name="dateTime" (change)="validateForErrorDate(cardObj.dateAndTime)" [ngModel] ="returnDateObj(cardObj.dateAndTime) | date:'yyyy-MM-dd'" (ngModelChange)="cardObj.dateAndTime = returnDateObj($event)">
+                <p *ngIf="cardObj.dateAndTime == undefined || cardObj.dateAndTime == null">Date and Time selection is mandatory</p>
+                <p *ngIf="olderDateCondition">Date and Time selected is older than the current date and time</p>
+                <label for="duration">Duration In Hours</label>
+                <input type="number" id="duration" name="duration" [(ngModel)]="cardObj.duration">
+                <p *ngIf="cardObj.duration<=0">Duration cannot be less than or equal to zero hours</p>
+                <p *ngIf="cardObj.duration==undefined || cardObj.duration==null ">Duration in Hours is a mandatory field</p>
+                <div class="submit-button">
+                        <button type="submit" [disabled]="cardObj.trainingName==undefined || cardObj.trainingName==null || cardObj.trainingName.trim()==''||cardObj.department==undefined || cardObj.department==null||cardObj.meetingRoom==undefined || cardObj.meetingRoom==null||cardObj.dateAndTime == undefined || cardObj.dateAndTime == null||olderDateCondition||cardObj.duration==undefined || cardObj.duration==null || cardObj.duration<=0 " (click)="addOrEdit()">Add/Edit Event</button>
+                </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+.event-list-header-card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    padding:0px;
+    margin:0px;
+    background-color: darkgray;
+  }
+
+  /* On mouse-over, add a deeper shadow */
+  .event-list-header-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+
+  /* Add some padding inside the card container */
+  .event-list-container {
+    padding: 2px 16px;
+  }
+
+  .search-form{
+    text-align:center;
+  }
+   input{
+       border:0px;
+   }
+  .input-box{
+    margin:0px;
+    padding:5px;
+    width:15%;
+    background-color:pink;
+    color:black;
+  }
+  .form-group-search-form button{
+    padding:4.35px;
+    border: 1px solid green;
+    cursor: pointer;
+    background-color:lightgreen;
+  }
+  .form-group-search-form{
+      padding-bottom:25px;
+      text-align:center;
+  }
+  .filter-form{
+    text-align:right;
+    width:100%;
+  }
+  .form-group-filter-form{
+      text-align:right;
+      width:100%;
+  }
+  .form-group-filter-form span{
+      padding:5px;
+      text-align:center;
+      color:gray;
+  }

@@ -1,0 +1,13 @@
+<div class="event-card-class">
+    <div class="event-card-container">
+        <div class="edit-button-container-class">
+            <button (click)="beforeEdit(cardObj,indexOfTheCard,cardObj.department)">Edit Event</button>
+        </div>
+        <ul *ngIf="cardObj!==undefined && cardObj!==null">
+            <li *ngFor="let item of cardObj | keyvalue">
+                <b>{{convertKey(item.key)}}:</b><span class="value-class"><span [innerHTML]="processValue(item.value,item.key)"></span></span>
+            </li>
+        </ul>
+    </div>
+</div>
+

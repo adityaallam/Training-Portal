@@ -1,0 +1,19 @@
+.header-component-class{
+    background-color:rgb(64,64,64);
+    margin:0px;
+    padding:0px;
+}
+
+.infrrd-img-class{
+    margin:5px;
+    width:45px;
+    height:45px;
+}
+
+.header-tag{
+    margin-top:0px;
+    padding-bottom:5px;
+    text-align: center;
+    margin-bottom: 0px;
+    color:white;
+}

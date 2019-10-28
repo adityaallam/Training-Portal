@@ -1,0 +1,22 @@
+<div class="event-list-header-card">
+    <div class="event-list-container">
+        <form class="filter-form" *ngIf="departmentsArray">
+            <div class="form-group-filter-form">
+                <span><i>{{appLabels.filterByDept}}</i></span>
+                <select  [(ngModel)]="cardsService.selectedDept" name="deptValue">
+                    <option  [ngValue]="appLabels.allDept">{{appLabels.allDept}}</option>
+                    <ng-container *ngFor="let dept of departmentsArray; let i = index" >
+                            <option *ngIf="i!==0" [ngValue]="dept">{{departmentsArray[i]}}</option>
+                    </ng-container>
+                </select>
+            </div>
+        </form>
+
+        <form class="search-form">
+            <div class="form-group-search-form">
+                <input type='text' class="input-box" name="searchValue" [placeholder]="appLabels.searchTheEventsByEventName" [(ngModel)]="cardsService.searchText">
+                <button type="submit">{{appLabels.search}}</button>
+            </div>
+        </form>
+    </div>
+</div>
